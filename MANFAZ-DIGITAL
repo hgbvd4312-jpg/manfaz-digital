@@ -1,0 +1,799 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10100f">
+  <meta name="description" content="Manfaz Digital : découvre des formations et ressources numériques pour apprendre, créer et développer tes compétences.">
+  <title>MANFAZ DIGITAL — Apprends. Crée. Développe.</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #10100f;
+      --surface: #191917;
+      --surface2: #22221f;
+      --gold: #d9ad55;
+      --gold-light: #f1d28b;
+      --cream: #f5f0e6;
+      --muted: #aaa69c;
+      --white: #fffdf8;
+      --line: rgba(217,173,85,.18);
+      --green: #25d366;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    .container { width: min(1160px, 90%); margin: auto; }
+
+    .announcement {
+      background: var(--gold);
+      color: #17130b;
+      text-align: center;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(16,16,15,.94);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--line);
+    }
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+    .brand {
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      white-space: nowrap;
+    }
+    .brand span { color: var(--gold); }
+    nav { display: flex; align-items: center; gap: 27px; }
+    nav a {
+      color: #d4d0c7;
+      font-size: 13px;
+      transition: .2s;
+    }
+    nav a:hover { color: var(--gold-light); }
+    .nav-cta {
+      background: var(--gold);
+      color: #17130b;
+      padding: 10px 17px;
+      border-radius: 5px;
+      font-weight: 800;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 105px 0 100px;
+      background:
+        radial-gradient(ellipse at 85% 20%, rgba(217,173,85,.15), transparent 40%),
+        radial-gradient(ellipse at 5% 90%, rgba(104,91,57,.13), transparent 38%),
+        var(--bg);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      border: 1px solid rgba(217,173,85,.13);
+      border-radius: 50%;
+      right: -100px;
+      bottom: -170px;
+    }
+    .hero-content { max-width: 760px; position: relative; z-index: 1; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 11px;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 25px;
+      height: 1px;
+      background: var(--gold);
+    }
+    h1, h2, h3 { line-height: 1.15; }
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(43px, 7vw, 76px);
+      letter-spacing: -1.8px;
+      margin-bottom: 23px;
+    }
+    h1 span { color: var(--gold); }
+    .hero p {
+      max-width: 590px;
+      color: #c1bdb4;
+      font-size: 16px;
+      margin-bottom: 32px;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 13px; }
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 14px 22px;
+      border-radius: 5px;
+      font-size: 13px;
+      font-weight: 800;
+      transition: .2s;
+      border: 1px solid transparent;
+    }
+    .btn:hover { transform: translateY(-3px); }
+    .btn-gold { background: var(--gold); color: #17130b; }
+    .btn-outline { border-color: rgba(255,255,255,.25); color: white; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold-light); }
+
+    .trust-strip {
+      background: #eae3d6;
+      color: #27231b;
+      padding: 22px 0;
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+      text-align: center;
+    }
+    .trust-grid strong { display: block; font-size: 14px; }
+    .trust-grid span { font-size: 12px; color: #70685b; }
+
+    section { padding: 85px 0; }
+    .section-heading { text-align: center; margin-bottom: 38px; }
+    .section-heading .eyebrow { justify-content: center; }
+    .section-heading h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(30px, 4vw, 43px);
+      margin-bottom: 12px;
+    }
+    .section-heading p { color: var(--muted); font-size: 14px; }
+
+    #boutique { background: #171715; }
+    .catalog-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+    .search-box {
+      flex: 1;
+      min-width: 220px;
+      max-width: 390px;
+      position: relative;
+    }
+    .search-box input {
+      width: 100%;
+      background: #242420;
+      border: 1px solid #3a3932;
+      border-radius: 6px;
+      padding: 13px 15px;
+      color: white;
+      outline: none;
+    }
+    .search-box input:focus { border-color: var(--gold); }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; }
+    .filter-btn {
+      border: 1px solid #454238;
+      color: #d2cec4;
+      background: transparent;
+      padding: 9px 14px;
+      border-radius: 30px;
+      font-size: 12px;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--gold);
+      color: #17130b;
+      border-color: var(--gold);
+      font-weight: 800;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: 22px;
+    }
+    .product-card {
+      background: #22221f;
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 9px;
+      overflow: hidden;
+      transition: .25s;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(217,173,85,.55);
+    }
+    .product-cover {
+      min-height: 205px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 23px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg,#37301e,#171713 70%);
+    }
+    .product-cover::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border: 1px solid rgba(241,210,139,.25);
+      border-radius: 50%;
+      right: -55px;
+      bottom: -80px;
+    }
+    .cover-digital {
+      background: linear-gradient(135deg,#1b3440,#151918 75%);
+    }
+    .cover-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold-light);
+      font-weight: 800;
+      position: relative;
+      z-index: 1;
+    }
+    .cover-title {
+      font-family: "Playfair Display", serif;
+      font-size: 28px;
+      max-width: 240px;
+      position: relative;
+      z-index: 1;
+    }
+    .cover-symbol {
+      position: absolute;
+      right: 20px;
+      top: 60px;
+      color: rgba(241,210,139,.17);
+      font-size: 82px;
+      font-weight: 800;
+    }
+    .product-info { padding: 22px; }
+    .product-category {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+      font-size: 10px;
+      font-weight: 800;
+    }
+    .product-info h3 { font-size: 18px; margin: 9px 0; }
+    .product-info p { color: #aaa69c; font-size: 12px; min-height: 43px; }
+    .product-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .price { color: var(--gold-light); font-size: 20px; font-weight: 800; }
+    .buy-btn {
+      background: var(--gold);
+      color: #17130b;
+      border-radius: 4px;
+      padding: 10px 15px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .buy-btn:hover { background: var(--gold-light); }
+    .empty-state {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 40px;
+      color: var(--muted);
+      display: none;
+    }
+
+    #apropos {
+      background: var(--cream);
+      color: #242119;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+    #apropos .eyebrow { color: #97702b; }
+    #apropos h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(32px,4vw,45px);
+      margin-bottom: 20px;
+    }
+    .about-text { color: #6b665c; font-size: 14px; margin-bottom: 15px; }
+    .about-panel {
+      background: #ded4c2;
+      padding: 35px;
+      border-radius: 9px;
+      border: 1px solid #d2c4ac;
+    }
+    .about-panel h3 {
+      font-family: "Playfair Display",serif;
+      font-size: 25px;
+      margin-bottom: 15px;
+    }
+    .about-point {
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(50,43,30,.12);
+      font-size: 13px;
+      color: #514b40;
+    }
+    .about-point:last-child { border: 0; }
+
+    #engagements { background: #121210; }
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+    .value-card {
+      background: linear-gradient(145deg,#24231f,#191917);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 28px;
+    }
+    .value-icon { font-size: 27px; margin-bottom: 16px; }
+    .value-card h3 { font-size: 17px; margin-bottom: 10px; }
+    .value-card p { color: var(--muted); font-size: 12px; }
+
+    #faq { background: #eae3d6; color: #27231b; }
+    #faq .section-heading p { color: #777064; }
+    .faq-list { max-width: 780px; margin: auto; }
+    details {
+      border-bottom: 1px solid #d2c8b8;
+      padding: 18px 0;
+    }
+    summary { cursor: pointer; font-weight: 700; font-size: 14px; }
+    details p { padding-top: 12px; color: #70685b; font-size: 13px; }
+
+    .contact-section {
+      background: radial-gradient(ellipse at 50% 0%,rgba(217,173,85,.13),transparent 60%),#171715;
+      text-align: center;
+    }
+    .contact-section h2 {
+      font-family: "Playfair Display",serif;
+      font-size: clamp(30px,4vw,42px);
+      margin-bottom: 15px;
+    }
+    .contact-section p { color: var(--muted); margin-bottom: 25px; font-size: 14px; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      background: #0c0c0b;
+      padding: 35px 0 25px;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding-bottom: 25px;
+    }
+    .footer-note { color: var(--muted); font-size: 12px; margin-top: 7px; }
+    .socials { display: flex; flex-wrap: wrap; gap: 10px; }
+    .socials a {
+      border: 1px solid #38362f;
+      padding: 9px 13px;
+      border-radius: 5px;
+      font-size: 12px;
+      color: #d4d0c7;
+    }
+    .socials a:hover { border-color: var(--gold); color: var(--gold-light); }
+    .copyright {
+      border-top: 1px solid #292821;
+      padding-top: 20px;
+      color: #77736a;
+      font-size: 11px;
+      text-align: center;
+    }
+    .copyright span { color: var(--gold); }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 80;
+      background: var(--green);
+      color: #082b16;
+      border-radius: 50px;
+      padding: 13px 18px;
+      box-shadow: 0 5px 25px rgba(0,0,0,.35);
+      font-size: 13px;
+      font-weight: 800;
+      transition: .2s;
+    }
+    .whatsapp-float:hover { transform: translateY(-3px); }
+
+    @media(max-width:850px) {
+      nav { gap: 14px; }
+      nav a { font-size: 11px; }
+      .product-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .about-grid { gap: 25px; }
+    }
+    @media(max-width:620px) {
+      .navbar { min-height: 68px; flex-wrap: wrap; padding: 13px 0; }
+      .brand { font-size: 18px; }
+      nav { width: 100%; justify-content: space-between; gap: 8px; }
+      nav a { font-size: 11px; }
+      .nav-cta { padding: 7px 10px; }
+      .hero { padding: 75px 0; }
+      .hero p { font-size: 14px; }
+      section { padding: 65px 0; }
+      .trust-grid { grid-template-columns: 1fr; gap: 14px; }
+      .catalog-tools { align-items: stretch; }
+      .search-box { max-width: none; }
+      .product-grid { grid-template-columns: 1fr; }
+      .product-cover { min-height: 190px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .value-grid { grid-template-columns: 1fr; }
+      .about-panel { padding: 25px; }
+      .whatsapp-float { right: 12px; bottom: 12px; padding: 11px 14px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="announcement">
+    BIENVENUE CHEZ MANFAZ DIGITAL — APPRENDS, CRÉE ET DÉVELOPPE TES COMPÉTENCES
+  </div>
+
+  <header>
+    <div class="container navbar">
+      <a class="brand" href="#accueil">MANFAZ <span>DIGITAL.</span></a>
+      <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="#boutique">Boutique</a>
+        <a href="#apropos">À propos</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-cta" href="#boutique">Découvrir</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow">Ton espace digital</div>
+          <h1>Apprends.<br><span>Crée.</span> Développe.</h1>
+          <p>
+            Bienvenue chez Manfaz Digital, ton espace dédié aux ressources
+            numériques, à l'apprentissage et au développement de nouvelles compétences.
+            Fais le premier pas vers tes ambitions digitales.
+          </p>
+          <div class="actions">
+            <a href="#boutique" class="btn btn-gold">Explorer la boutique</a>
+            <a href="#apropos" class="btn btn-outline">Découvrir notre vision</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="container trust-grid">
+        <div><strong>RESSOURCES NUMÉRIQUES</strong><span>Des contenus pour apprendre</span></div>
+        <div><strong>ACCÈS VIA CHARIOW</strong><span>Des achats sur les pages produits</span></div>
+        <div><strong>CONTACT DIRECT</strong><span>Une assistance par WhatsApp</span></div>
+      </div>
+    </div>
+
+    <section id="boutique">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">La sélection Manfaz</div>
+          <h2>Explore nos produits</h2>
+          <p>Choisis une ressource et avance à ton rythme.</p>
+        </div>
+
+        <div class="catalog-tools">
+          <div class="search-box">
+            <input type="search" id="searchInput" placeholder="Rechercher un produit..." aria-label="Rechercher un produit">
+          </div>
+          <div class="filters" id="categoryFilters">
+            <button class="filter-btn active" data-category="Tous">Tout</button>
+            <button class="filter-btn" data-category="Formation">Formations</button>
+            <button class="filter-btn" data-category="Guide">Guides</button>
+            <button class="filter-btn" data-category="Autre">Autres</button>
+          </div>
+        </div>
+
+        <div class="product-grid" id="productGrid"></div>
+      </div>
+    </section>
+
+    <section id="apropos">
+      <div class="container about-grid">
+        <div>
+          <div class="eyebrow">Notre identité</div>
+          <h2>Le digital ouvre de nouvelles possibilités.</h2>
+          <p class="about-text">
+            Manfaz Digital est une boutique de ressources numériques pensée
+            pour rendre l'apprentissage et la découverte du digital plus accessibles.
+          </p>
+          <p class="about-text">
+            Notre ambition est de proposer progressivement des contenus utiles
+            pour apprendre, développer ses idées et progresser dans l'univers numérique.
+          </p>
+          <p class="about-text"><strong>Fondé par WABI MANFAZ.</strong></p>
+        </div>
+
+        <div class="about-panel">
+          <h3>Notre vision</h3>
+          <div class="about-point">✦ Rendre les ressources digitales plus accessibles.</div>
+          <div class="about-point">✦ Encourager l'apprentissage et la créativité.</div>
+          <div class="about-point">✦ Développer une boutique utile et évolutive.</div>
+          <div class="about-point">✦ Construire une communauté tournée vers le numérique.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="engagements">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Pourquoi Manfaz Digital ?</div>
+          <h2>Une expérience simple</h2>
+          <p>Tout est organisé pour faciliter ta découverte.</p>
+        </div>
+
+        <div class="value-grid">
+          <article class="value-card">
+            <div class="value-icon">✦</div>
+            <h3>Des ressources utiles</h3>
+            <p>Des guides et formations numériques pour développer tes connaissances.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-icon">◈</div>
+            <h3>Un achat simple</h3>
+            <p>Chaque produit possède son propre lien d'achat sur notre boutique Chariow.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-icon">◎</div>
+            <h3>Un contact direct</h3>
+            <p>Une question ? Tu peux nous contacter directement sur WhatsApp.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Besoin d'aide ?</div>
+          <h2>Questions fréquentes</h2>
+          <p>Quelques réponses pour mieux utiliser la boutique.</p>
+        </div>
+
+        <div class="faq-list">
+          <details>
+            <summary>Comment acheter un produit ?</summary>
+            <p>Choisis ton produit puis clique sur « Acheter ». Tu seras redirigé vers sa page individuelle sur Chariow pour poursuivre ton achat.</p>
+          </details>
+          <details>
+            <summary>Comment recevoir mon produit ?</summary>
+            <p>Les modalités d'accès et de livraison sont indiquées sur la page du produit et lors de ton achat sur Chariow.</p>
+          </details>
+          <details>
+            <summary>Comment poser une question ?</summary>
+            <p>Utilise le bouton WhatsApp présent sur le site pour nous contacter.</p>
+          </details>
+          <details>
+            <summary>De nouveaux produits seront-ils ajoutés ?</summary>
+            <p>Oui. Le catalogue est conçu pour accueillir progressivement de nouvelles ressources et catégories.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="eyebrow">Restons en contact</div>
+        <h2>Une question ? Parlons-en.</h2>
+        <p>Pour toute information sur nos produits, contacte Manfaz Digital sur WhatsApp.</p>
+        <a class="btn btn-gold" id="contactMain" href="#" target="_blank" rel="noopener">Nous contacter sur WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="brand" href="#accueil">MANFAZ <span>DIGITAL.</span></a>
+          <p class="footer-note">Fondé par WABI MANFAZ</p>
+        </div>
+        <div class="socials">
+          <a href="https://www.tiktok.com/@digitalnexus13?_r=1&_t=ZG-9BaeN5349uz" target="_blank" rel="noopener">TikTok</a>
+          <a href="https://www.facebook.com/profile.php?id=61591315841448" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+      <div class="copyright">
+        © <span id="year"></span> <span>MANFAZ DIGITAL</span>. Tous droits réservés.
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" id="whatsappFloat" href="#" target="_blank" rel="noopener" aria-label="Contacter Manfaz Digital sur WhatsApp">
+    WhatsApp ↗
+  </a>
+
+  <script>
+    // ==========================================
+    // CONFIGURATION DE LA BOUTIQUE
+    // Pour ajouter un produit, ajoute un nouvel
+    // objet dans la liste ci-dessous.
+    // ==========================================
+
+    const WHATSAPP_NUMBER = "2250788442139";
+
+    const products = [
+      {
+        name: "Canva Masterclass 2026",
+        description: "Le guide pratique du débutant pour découvrir Canva et apprendre à créer.",
+        price: 1500,
+        category: "Formation",
+        label: "Canva",
+        symbol: "C",
+        cover: "cover-canva",
+        link: "https://tytrfirq.mychariow.shop/prd_fl66i1yd"
+      },
+      {
+        name: "Gagner de l'argent grâce au digital",
+        description: "Un guide pratique pour découvrir les possibilités du monde digital.",
+        price: 2500,
+        category: "Guide",
+        label: "Digital",
+        symbol: "D",
+        cover: "cover-digital",
+        link: "https://tytrfirq.mychariow.shop/prd_tz15eyo6"
+      }
+    ];
+
+    // ==========================================
+    // AFFICHAGE ET RECHERCHE DES PRODUITS
+    // ==========================================
+
+    const productGrid = document.getElementById("productGrid");
+    const searchInput = document.getElementById("searchInput");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+
+    let selectedCategory = "Tous";
+
+    function formatPrice(price) {
+      return new Intl.NumberFormat("fr-FR").format(price) + " FCFA";
+    }
+
+    function displayProducts() {
+      const search = searchInput.value.trim().toLowerCase();
+
+      const filtered = products.filter(product => {
+        const matchesCategory =
+          selectedCategory === "Tous" || product.category === selectedCategory;
+
+        const searchableText =
+          (product.name + " " + product.description + " " + product.category).toLowerCase();
+
+        return matchesCategory && searchableText.includes(search);
+      });
+
+      productGrid.innerHTML = "";
+
+      if (filtered.length === 0) {
+        productGrid.innerHTML =
+          '<div class="empty-state" style="display:block;">Aucun produit trouvé. Essaie une autre recherche.</div>';
+        return;
+      }
+
+      filtered.forEach(product => {
+        const card = document.createElement("article");
+        card.className = "product-card";
+
+        const cover = document.createElement("div");
+        cover.className = "product-cover " + (product.cover || "");
+        cover.innerHTML = `
+          <span class="cover-label">${product.label || "Manfaz Digital"}</span>
+          <span class="cover-symbol">${product.symbol || "✦"}</span>
+          <div class="cover-title">${product.name}</div>
+        `;
+
+        const info = document.createElement("div");
+        info.className = "product-info";
+
+        const category = document.createElement("div");
+        category.className = "product-category";
+        category.textContent = product.category;
+
+        const title = document.createElement("h3");
+        title.textContent = product.name;
+
+        const description = document.createElement("p");
+        description.textContent = product.description;
+
+        const bottom = document.createElement("div");
+        bottom.className = "product-bottom";
+
+        const price = document.createElement("div");
+        price.className = "price";
+        price.textContent = formatPrice(product.price);
+
+        const buy = document.createElement("a");
+        buy.className = "buy-btn";
+        buy.textContent = "Acheter ↗";
+        buy.href = product.link;
+        buy.target = "_blank";
+        buy.rel = "noopener noreferrer";
+        buy.setAttribute("aria-label", "Acheter " + product.name);
+
+        bottom.append(price, buy);
+        info.append(category, title, description, bottom);
+        card.append(cover, info);
+        productGrid.appendChild(card);
+      });
+    }
+
+    searchInput.addEventListener("input", displayProducts);
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
+        selectedCategory = button.dataset.category;
+        displayProducts();
+      });
+    });
+
+    // ==========================================
+    // WHATSAPP
+    // ==========================================
+
+    const whatsappMessage = encodeURIComponent(
+      "Bonjour Manfaz Digital ! Je souhaite avoir des informations sur vos produits."
+    );
+
+    const whatsappLink =
+      "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + whatsappMessage;
+
+    document.getElementById("whatsappFloat").href = whatsappLink;
+    document.getElementById("contactMain").href = whatsappLink;
+
+    // Année automatique
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Affichage initial
+    displayProducts();
+  </script>
+</body>
+</html>
